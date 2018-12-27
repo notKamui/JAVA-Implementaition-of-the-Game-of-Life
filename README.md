@@ -1,4 +1,4 @@
-# JAVA Implementaition of the Game of Life
+# JAVA Implementation of the Game of Life
 ## A simple JAVA implementation of Conway's Game of Life
 
 ### Important details
