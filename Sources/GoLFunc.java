@@ -46,14 +46,25 @@ public class GoLFunc {
 		}
 
 	}
-	
-	public static void readWorld (boolean[][] world, String fname) {
-		int width = world.length;
-		int height = world[0].length;
-		
+
+	public static boolean[][] readWorld(String fname) {
+		boolean[][] world = new boolean[0][0];
 		try {
-			Scanner sc = new Scanner(new File(fname));
+			Scanner sc;
+			
+			sc = new Scanner(new File(fname));
 			String line;
+			line = sc.nextLine();
+			
+			int width = line.length();
+			int height = 1;
+			while (sc.hasNextLine()) {
+				height++;
+				line = sc.nextLine();
+			}
+			world = createWorld(width, height);
+			
+			sc = new Scanner(new File(fname));
 			while (sc.hasNextLine()) {
 				for (int y = 0; y < height; y++) {
 					line = sc.nextLine();
@@ -63,10 +74,16 @@ public class GoLFunc {
 					}
 				}
 			}
+			
 			sc.close();
+			return world;
+			
 		} catch (FileNotFoundException e){
 			e.printStackTrace();
 		}
+		
+		return world;
+		
 	}
 
 	// living : ⬜ dead : ⬛

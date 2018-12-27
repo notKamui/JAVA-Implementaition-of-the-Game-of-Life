@@ -104,22 +104,7 @@ public class GoL {
 					System.out.println("Not available : no valid argument or file found.");
 					GoLFunc.sleep(2000);
 				} else {
-					// choose dimensions
-					do {
-						try {
-							GoLFunc.clear();
-							System.out.println("Input the EXACT dimensions of the chosen world : ");
-							System.out.print("Width : ");
-							width = Integer.parseInt(input.nextLine());
-							System.out.print("Height : ");
-							height = Integer.parseInt(input.nextLine());
-							System.out.println();
-						} catch (NumberFormatException e) {
-							width = 0;
-							height = 0;
-						}
-					} while (height <= 0 || width <= 0);
-
+					
 					// choose speed
 					do {
 						try {
@@ -133,9 +118,8 @@ public class GoL {
 						}
 					} while (time < 10);
 
-					world = GoLFunc.createWorld(width, height);
-
-					GoLFunc.readWorld(world, fname);
+					
+					world = GoLFunc.readWorld(fname);
 					GoLFunc.displayWorld(world);
 
 					System.out.println();
