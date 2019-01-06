@@ -16,7 +16,7 @@ To import a world, create a .txt file and call it via `java -jar GoL.jar [absolu
 Make sure to only use these characters in it : living : ⬜ ; dead : ⬛.\
 Make sure that the world is perfectly rectangle.\
 Any error in the text file will cause the game to crash.\
-You can use the sample worlds as you wish.\
+You can use the sample worlds as you wish.
 
 ### Other
 For further informations, check out GoL.pdf\
