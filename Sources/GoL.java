@@ -1,6 +1,7 @@
 
 /*
  * Java implementation of the Game of Life. Cf doc CGOL.pdf
+ * This class contains the menu and launches several key functions for the game
  */
 
 import java.util.*;
@@ -9,10 +10,9 @@ public class GoL {
 
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
-		int width, height, time, gen = 0;
+		int width, height, time;
 		double rate;
 		boolean[][] world;
-		boolean infinite = true;
 
 		boolean importedWorld = true;
 		String fname = "";
@@ -85,23 +85,16 @@ public class GoL {
 				world = GoLFunc.createWorld(width, height);
 
 				GoLFunc.randomLifeFill(world, rate);
-				GoLFunc.displayWorld(world);
-
-				System.out.println();
-				while (infinite) { // infinite loop, only way to get out is CTRL+C
-					world = GoLFunc.nextGenWorld(world);
-					GoLFunc.sleep(time);
-					GoLFunc.displayWorld(world);
-					System.out.print("Generation n°" + gen);
-					gen++;
-				}
+				
+				GoLFunc.runWorld(world, time);
+				
 				break;
 
 			case 2:
 				GoLFunc.clear();
 
 				if (!importedWorld) {
-					System.out.println("Not available : no valid argument or file found.");
+					System.out.println("Not available : no valid argument or file not found.");
 					GoLFunc.sleep(2000);
 				} else {
 					
@@ -120,16 +113,8 @@ public class GoL {
 
 					
 					world = GoLFunc.readWorld(fname);
-					GoLFunc.displayWorld(world);
 
-					System.out.println();
-					while (infinite) { // infinite loop, only way to get out is CTRL+C
-						world = GoLFunc.nextGenWorld(world);
-						GoLFunc.sleep(time);
-						GoLFunc.displayWorld(world);
-						System.out.print("Generation n°" + gen);
-						gen++;
-					}
+					GoLFunc.runWorld(world, time);
 				}
 				break;
 
