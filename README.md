@@ -4,7 +4,7 @@
 ### Important details
 Only follow each step without trying to corrupt the game by entering absurd inputs.\
 Please use this in a terminal/console in fullscreen on a Unix system with a recommended font size of 10px.\
-The only way to get out of the game after being lauched is to forcequit it by pressing CTRL+C.
+The only way to get out of the game after being launched is to forcequit it by pressing CTRL+C.
 
 To run the game, open a terminal/console and move to the current folder using cd commands, then `java -jar GoL.jar`
 
